@@ -10,8 +10,12 @@
 
         // Exercice 3 // 
         
-        var reponse = prompt("Saisir ton prénom", "Quel est votre Prénom ?");
-        alert("Bonjour " + reponse);
+        var reponse = prompt("Saisir ton prénom", "");
+        if(reponse == ""){
+          alert("Mais dis moi quel est ton prénom");
+        } else {
+          alert("Bonjour " + reponse);
+        }
     
 
 
