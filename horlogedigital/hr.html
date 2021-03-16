@@ -32,16 +32,16 @@ function showTime() {
   let min = date.getMinutes();
   let sec = date.getSeconds();
 
-  let midday = "AM";
-  midday = (hour >= 12) ? "PM" : "AM"; 
+  let ind = "AM";
+  ind = (hour >= 12) ? "PM" : "AM"; 
   hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); 
 
   hour = updateTime(hour);
   min = updateTime(min);
   sec = updateTime(sec);
 
-  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday + " "; 
-  let t = setTimeout(showTime, 1000); }
+  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + ind; 
+  let t = setInterval(showTime, 1000); }
 
 function updateTime(k) {  
     if (k < 10) {
