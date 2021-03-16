@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horloge</title>
+  <link rel="stylesheet" href="clock.css">
+
+<style>
+#clock {
+  font-size: 175px;
+  width: 900px;
+  margin: 200px;
+  text-align: center;
+  border: 4px solid black;
+  border-radius: 20px;  }
+</style>
+
+</head>
+
+<body>
+
+  <div id="clock"></div>
+
+<script>
+
+function showTime() {
+
+  let date = new Date(); 
+  let hour = date.getHours();
+  let min = date.getMinutes();
+  let sec = date.getSeconds();
+
+  let midday = "AM";
+  midday = (hour >= 12) ? "PM" : "AM"; 
+  hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); 
+
+  hour = updateTime(hour);
+  min = updateTime(min);
+  sec = updateTime(sec);
+
+  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday + " "; 
+  let t = setTimeout(showTime, 1000); }
+
+function updateTime(k) {  
+    if (k < 10) {
+    return "0" + k; }
+    else {
+    return k;   }   }
+
+showTime();
+
+
+</script>
