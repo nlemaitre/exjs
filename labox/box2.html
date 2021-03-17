@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table border="3" cellpadding="25">
+        <tr>
+            
+        <td id="selectBoxOne" multiple="multiple">
+            
+        List'Item 1 <br />
+
+        <ul id="selectBoxOne">
+    
+            <li>
+                <input type="checkbox" id="item1" name="checkbox">
+                <label for="item1">Item 1</label>
+            </li>
+            <li>
+                <input type="checkbox" id="item2" name="checkbox">
+                <label for="item2">Item 2</label>
+            </li>
+            <li>
+                <input type="checkbox" id="item3" name="checkbox">
+                <label for="item3">Item 3</label>
+            </li>
+
+        </ul>
+
+        </select>
+
+        </td>
+
+        <td>
+            <div onclick="move('left');"> <<< </div>
+            </br>
+            <div onclick="move('right');"> >>> </div>
+        </td>
+
+        <td id="selectBoxSecond" multiple="multiple">
+            
+        List'Item 2 <br />
+
+        <ul>
+        
+            <li>
+                <input type="checkbox" id="item1" name="checkbox">
+                <label for="item1">Item 1</label>
+            </li>
+            <li>
+                <input type="checkbox" id="item2" name="checkbox">
+                <label for="item2">Item 2</label>
+            </li>
+            <li>
+                <input type="checkbox" id="item3" name="checkbox">
+                <label for="item3">Item 3</label>
+            </li>
+    
+        </ul>
+    
+        </td>
+
+    </table>
+
+    
+<script>
+
+
+function move(sens) {
+
+var i, sourceSel, targetSel; 
+
+if (sens == 'right') {
+  sourceSel = document.getElementById('selectBoxOne'); 
+  targetSel = document.getElementById('selectBoxSecond');
+} else {
+  sourceSel = document.getElementById('selectBoxSecond'); 
+  targetSel = document.getElementById('selectBoxOne');
+}
+
+i = sourceSel.options.length;
+while (i--) {
+  if (sourceSel.options[i].selected) {
+    targetSel.appendChild(sourceSel.options[i]);
+  }
+}
+}
+
+</script>
+</body>
+</html>
